@@ -1,6 +1,8 @@
 name: Baha Daily Login
 on:
-  deployment_status:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 1 * * *'
 jobs:
   run-login-baha:
     timeout-minutes: 60
@@ -24,13 +26,3 @@ jobs:
         env:
           BAHA_USERNAME: ${{ secrets.BAHA_USERNAME }}
           BAHA_PASSWORD: ${{ secrets.BAHA_PASSWORD }}
-      
-    # - name: Install dependencies
-    #   run: npm ci
-    # - name: Install Playwright
-    #   run: npx playwright install --with-deps
-    # - name: Run Playwright tests
-    #   run: npm run test:e2e
-    #   env:
-    #     # This might depend on your test-runner/language binding
-    #     PLAYWRIGHT_TEST_BASE_URL: ${{ github.event.deployment_status.target_url }}
