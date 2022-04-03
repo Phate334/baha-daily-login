@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 playwright = "*"
 loguru = "*"
-schedule = "*"
 
 [dev-packages]
 isort = "*"

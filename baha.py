@@ -1,7 +1,5 @@
-import time
 from os import getenv
 
-import schedule
 from loguru import logger
 from playwright.sync_api import sync_playwright
 
@@ -23,14 +21,6 @@ def login(username: str, password: str):
         page.goto("https://www.gamer.com.tw/")
         logger.info(page.text_content("#signin-btn"))
         browser.close()
-
-
-def run_schedule():
-    schedule.every().day.at("00:30").do(login)
-
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
 
 
 if __name__ == "__main__":
