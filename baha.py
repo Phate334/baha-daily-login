@@ -18,7 +18,7 @@ def login(username: str, password: str):
         page.fill("#form-login > input:nth-child(1)", username)
         page.fill(".password-box > input:nth-child(1)", password)
         page.click("#btn-login")
-        page.goto("https://www.gamer.com.tw/")
+        page.wait_for_selector("#signin-btn > i:nth-child(1)")
         logger.info(page.text_content("#signin-btn"))
         browser.close()
 
