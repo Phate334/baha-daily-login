@@ -22,6 +22,11 @@ def login(username: str, password: str):
         logger.info(page.text_content("#signin-btn")[9:])
         page.click("#signin-btn")
         logger.info(page.text_content(".popup-dailybox__subtitle > p:nth-child(1)"))
+        page.goto("https://fuli.gamer.com.tw/")
+        logger.info(
+            page.locator("//html/body/div[6]/div/div[3]/h5[1]").text_content()
+            + page.text_content("#forum-lastBoard").strip()
+        )
         browser.close()
 
 
